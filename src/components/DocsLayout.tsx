@@ -41,7 +41,7 @@ export const DocsLayout = () => {
               onClick={() => navigate('/')}
               className="ml-4 mr-4 lg:ml-24 lg:mr-0"
             >
-              ← Back to Home
+              ← Home
             </Button>
           </div>
 
@@ -109,6 +109,15 @@ export const DocsLayout = () => {
             </div>
           </main>
         </div>
+        
+        {/* Footer - outside scrollable area */}
+        <footer className="bg-black text-white">
+          <div className="max-w-4xl mx-auto px-6 py-4">
+            <div className="text-center">
+              <p className="text-sm text-gray-300">© 2025 TechDocs • Built with ❤️ by Raghul M</p>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );

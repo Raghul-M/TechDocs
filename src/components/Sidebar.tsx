@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, BookOpen } from 'lucide-react';
+import { ChevronDown, ChevronRight, BookOpen, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Input } from './ui/input';
 
 interface NavItem {
   title: string;
@@ -16,35 +17,20 @@ interface NavSection {
 
 const navigation: NavSection[] = [
   {
-    title: "GenAI",
+    title: "Projects",
     items: [
       { title: "Text Generation Models", href: "/docs/text-generation" },
       { title: "Image Generation", href: "/docs/image-generation" },
       { title: "Code Generation", href: "/docs/code-generation" },
       { title: "Prompt Engineering", href: "/docs/prompt-engineering" },
-    ],
-  },
-  {
-    title: "Cloud/DevOps",
-    items: [
       { title: "Kubernetes Orchestration", href: "/docs/kubernetes-orchestration" },
       { title: "Docker Containerization", href: "/docs/docker-containerization" },
       { title: "CI/CD Pipelines", href: "/docs/cicd-pipelines" },
       { title: "Infrastructure as Code", href: "/docs/infrastructure-as-code" },
-    ],
-  },
-  {
-    title: "AI/ML",
-    items: [
       { title: "Machine Learning Models", href: "/docs/ml-models" },
       { title: "Deep Learning", href: "/docs/deep-learning" },
       { title: "Data Preprocessing", href: "/docs/data-preprocessing" },
       { title: "Model Training", href: "/docs/model-training" },
-    ],
-  },
-  {
-    title: "MLOps/LLMOps",
-    items: [
       { title: "Model Deployment", href: "/docs/model-deployment" },
       { title: "Model Monitoring", href: "/docs/model-monitoring" },
       { title: "LLM Operations", href: "/docs/llm-operations" },
@@ -104,8 +90,20 @@ export const Sidebar = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-xl text-gray-900">TechDocs</span>
-            <span className="text-xs text-gray-500">v8.0.0</span>
+            <span className="text-xs text-gray-500">v1</span>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Search Bar */}
+      <div className="p-4 border-b border-gray-200 lg:hidden">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+          <Input
+            type="search"
+            placeholder="Search documentation..."
+            className="pl-10 bg-gray-50 border-gray-200 focus:bg-white"
+          />
         </div>
       </div>
 
@@ -115,14 +113,6 @@ export const Sidebar = () => {
           <NavSection key={section.title} section={section} />
         ))}
       </nav>
-
-      {/* Footer */}
-      <div className="p-6 border-t border-gray-200">
-        <div className="text-xs text-gray-500 space-y-1">
-          <div>© 2025 TechDocs</div>
-          <div>Built with ❤️ by Raghul M</div>
-        </div>
-      </div>
     </div>
   );
 };
