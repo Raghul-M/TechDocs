@@ -39,7 +39,7 @@ export const DocsLayout = () => {
               variant="outline"
               size="sm"
               onClick={() => navigate('/')}
-              className="ml-4 lg:ml-24"
+              className="ml-4 mr-4 lg:ml-24 lg:mr-0"
             >
               ← Back to Home
             </Button>

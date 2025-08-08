@@ -97,12 +97,13 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
           <Button 
             variant="outline" 
             size="sm" 
-            className="flex-1 group/btn"
+            className="flex-1 min-w-0 group/btn"
             onClick={() => project.documentationUrl ? window.open(project.documentationUrl, '_blank') : null}
             disabled={!project.documentationUrl}
           >
-            <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:text-primary" />
-            Documentation
+            <ExternalLink className="w-4 h-4 mr-1 group-hover/btn:text-primary" />
+            <span className="hidden sm:inline">Documentation</span>
+            <span className="sm:hidden">Docs</span>
           </Button>
           <Button 
             variant="outline" 
