@@ -107,7 +107,7 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
           <Button 
             variant="outline" 
             size="sm" 
-            className="w-10 h-10 p-0 group/btn bg-black hover:bg-gray-800 border-black hover:border-gray-800"
+            className="w-10 h-10 p-0 flex-shrink-0 group/btn bg-black hover:bg-gray-800 border-black hover:border-gray-800"
             onClick={() => project.githubUrl ? window.open(project.githubUrl, '_blank') : null}
             disabled={!project.githubUrl}
           >

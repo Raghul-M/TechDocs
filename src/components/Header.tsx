@@ -102,9 +102,13 @@ export const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
       {/* Simple Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200 p-4">
-          <a href="/docs" className="block text-lg font-medium text-primary py-2 text-center">
+          <Link
+            to="/docs"
+            className="block text-lg font-medium text-primary py-2 text-center"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             Documentation
-          </a>
+          </Link>
           <a href="#about" className="block text-lg font-medium text-primary py-2 text-center">
             About
           </a>
