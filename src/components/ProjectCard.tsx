@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { ExternalLink, Github, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ProjectDiagram } from './ProjectDiagram';
+
 
 interface ProjectCardProps {
   project: Project;
@@ -12,6 +12,19 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, className }: ProjectCardProps) => {
+  // Projects that should have Live Demo button
+  const projectsWithLiveDemo = [
+    'HireMe-ATS',
+    'DevOps Hub', 
+    'Gmail Sender Action',
+    'Quay Push Action',
+    'Git Bounty',
+    'BookVision',
+    'StreamChatify'
+  ];
+  
+  const shouldShowLiveDemo = projectsWithLiveDemo.includes(project.title);
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
@@ -31,10 +44,18 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
         return 'bg-purple-100 text-purple-800 border-purple-200';
       case 'MLOps':
         return 'bg-orange-100 text-orange-800 border-orange-200';
+      case 'LLM Ops':
+        return 'bg-amber-100 text-amber-800 border-amber-200';
       case 'DevOps':
         return 'bg-blue-100 text-blue-800 border-blue-200';
       case 'Full-Stack':
         return 'bg-green-100 text-green-800 border-green-200';
+      case 'Full-Stack / GenAI':
+        return 'bg-gradient-to-r from-green-100 to-purple-100 text-green-800 border-green-200';
+      case 'Cloud & DevOps':
+        return 'bg-gradient-to-r from-indigo-100 to-blue-100 text-indigo-800 border-indigo-200';
+      case 'Cloud/ ML':
+        return 'bg-gradient-to-r from-indigo-100 to-orange-100 text-indigo-800 border-indigo-200';
       case 'Data Engineering':
         return 'bg-red-100 text-red-800 border-red-200';
       case 'Cloud Architecture':
@@ -49,10 +70,32 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
       "group hover-lift transition-smooth border-border bg-card overflow-hidden flex flex-col h-full",
       className
     )}>
-      {/* Diagram Section */}
-      {project.diagram && (
-        <div className="relative bg-gradient-to-br from-muted to-muted/50 p-4 border-b border-border">
-          <ProjectDiagram project={project} />
+      {/* Thumbnail Image */}
+      {project.thumbnail && (
+        <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 border-b border-border overflow-hidden">
+          <img 
+            src={project.thumbnail} 
+            alt={project.title}
+            className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              // Fallback to diagram if image fails to load
+              e.currentTarget.style.display = 'none';
+              const parent = e.currentTarget.parentElement;
+              if (parent && project.diagram) {
+                parent.innerHTML = '<div class="p-4"><div class="text-center text-muted-foreground">Project Diagram</div></div>';
+              }
+            }}
+          />
+        </div>
+      )}
+      
+      {/* Fallback placeholder if no thumbnail */}
+      {!project.thumbnail && (
+        <div className="relative bg-gradient-to-br from-muted to-muted/50 p-4 border-b border-border h-48 flex items-center justify-center">
+          <div className="text-center text-muted-foreground">
+            <div className="text-4xl mb-2">📁</div>
+            <div>Project Preview</div>
+          </div>
         </div>
       )}
 
@@ -84,35 +127,29 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
 
       <CardFooter className="pt-0 mt-auto">
         <div className="flex items-center gap-2 w-full">
+          {shouldShowLiveDemo && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="flex-1 group/btn"
+              onClick={() => project.liveUrl ? window.open(project.liveUrl, '_blank') : null}
+              disabled={!project.liveUrl}
+            >
+              <Globe className="w-4 h-4 mr-2 group-hover/btn:text-primary" />
+              Live Demo
+            </Button>
+          )}
           <Button 
             variant="outline" 
             size="sm" 
-            className="flex-1 group/btn"
-            onClick={() => project.liveUrl ? window.open(project.liveUrl, '_blank') : null}
-            disabled={!project.liveUrl}
-          >
-            <Globe className="w-4 h-4 mr-2 group-hover/btn:text-primary" />
-            Live Demo
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="flex-1 min-w-0 group/btn"
-            onClick={() => project.documentationUrl ? window.open(project.documentationUrl, '_blank') : null}
-            disabled={!project.documentationUrl}
-          >
-            <ExternalLink className="w-4 h-4 mr-1 group-hover/btn:text-primary" />
-            <span className="hidden sm:inline">Documentation</span>
-            <span className="sm:hidden">Docs</span>
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="w-10 h-10 p-0 flex-shrink-0 group/btn bg-black hover:bg-gray-800 border-black hover:border-gray-800"
+            className={`group/btn bg-black hover:bg-gray-800 border-black hover:border-gray-800 text-white ${
+              shouldShowLiveDemo ? 'flex-1' : 'w-full'
+            }`}
             onClick={() => project.githubUrl ? window.open(project.githubUrl, '_blank') : null}
             disabled={!project.githubUrl}
           >
-            <Github className="w-5 h-5 text-white" />
+            <Github className="w-4 h-4 mr-2" />
+            GitHub
           </Button>
         </div>
       </CardFooter>

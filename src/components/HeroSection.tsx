@@ -8,25 +8,32 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground mb-6 text-balance leading-tight">
-            The Technical Hub
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-8 max-w-3xl mx-auto text-balance leading-tight">
+             My <span className="text-primary">Personal Projects</span> Journey ✨
             <br />
-            <span className="text-primary">for Developers.</span>
+            <span className="text-lg sm:text-xl lg:text-2xl font-medium text-muted-foreground">
+              From idea to implementation
+            </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg lg:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto text-balance leading-relaxed">
-            Comprehensive Project documentation and implementation guides .
-
-          </p>
+          {/* Hero Image */}
+          <div className="mb-12">
+            <img 
+              src="/Duplicate-bro.png" 
+              alt="Personal Projects Hub illustration" 
+              className="h-96 md:h-[500px] mx-auto object-contain"
+            />
+          </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <div className="flex items-center gap-2 px-4 py-3 bg-muted rounded-lg font-mono text-sm text-muted-foreground border border-border">
               <span>$</span>
-              <span>pip install technical-documentation</span>
+              <span>pip install raghulm-projects</span>
             </div>
           </div>
+
+
 
           {/* Domain Features */}
           <div className="grid grid-cols-5 gap-4 md:gap-8 mt-20">

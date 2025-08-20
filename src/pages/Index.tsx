@@ -20,6 +20,7 @@ const Index = () => {
         <ProjectGrid 
           projects={sampleProjects}
           searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
         />
       </main>
       

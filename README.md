@@ -32,7 +32,7 @@ A modern documentation website for technical projects across various domains inc
 1. Clone the repository:
 ```bash
 git clone [repository-url]
-cd lovelocraft-docs
+cd TechDocs
 ```
 
 2. Install dependencies:

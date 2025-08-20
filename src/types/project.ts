@@ -21,9 +21,13 @@ export interface Project {
 
 export type ProjectCategory = 
   | 'MLOps'
+  | 'LLM Ops'
   | 'DevOps'
   | 'GenAI'
   | 'Full-Stack'
+  | 'Full-Stack / GenAI'
+  | 'Cloud & DevOps'
+  | 'Cloud/ ML'
   | 'Data Engineering'
   | 'Cloud Architecture';
 
