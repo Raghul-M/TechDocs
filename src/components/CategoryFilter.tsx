@@ -30,17 +30,19 @@ export const CategoryFilter = ({
   onClearFilters
 }: CategoryFilterProps) => {
   return (
-    <div className="flex flex-wrap items-center gap-3 mb-8">
-      <span className="text-sm font-medium text-foreground">Filter by category:</span>
+    <div className="mb-8">
+      <span className="text-sm font-medium text-foreground mb-3 block">Filter by category:</span>
       
-      {categories.map((category) => {
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+        {categories.map((category) => {
         const isSelected = selectedCategories.includes(category);
         return (
           <Badge
             key={category}
             variant={isSelected ? "default" : "outline"}
             className={`
-              cursor-pointer transition-smooth hover-lift whitespace-normal text-center
+              cursor-pointer transition-smooth hover-lift text-xs sm:text-sm
+              flex-shrink-0 min-w-0 max-w-[30%] sm:max-w-none
               ${isSelected 
                 ? 'bg-primary text-primary-foreground border-primary hover:bg-primary-hover' 
                 : `${categoryColors[category]} border transition-colors`
@@ -48,34 +50,25 @@ export const CategoryFilter = ({
             `}
             onClick={() => onCategoryToggle(category)}
           >
-            <span className="sm:whitespace-nowrap">
-              {category.includes('/') || category.includes('&') ? (
-                <span className="block sm:inline">
-                  {category.split(/([/&])/).map((part, index) => (
-                    <span key={index} className={index % 2 === 1 ? 'sm:inline' : 'block sm:inline'}>
-                      {part}
-                    </span>
-                  ))}
-                </span>
-              ) : (
-                category
-              )}
+            <span className="truncate sm:whitespace-nowrap">
+              {category}
             </span>
           </Badge>
         );
-      })}
+        })}
 
-      {selectedCategories.length > 0 && (
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={onClearFilters}
-          className="text-muted-foreground hover:text-foreground transition-quick"
-        >
-          <X className="h-4 w-4 mr-1" />
-          Clear filters
-        </Button>
-      )}
+        {selectedCategories.length > 0 && (
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onClearFilters}
+            className="text-muted-foreground hover:text-foreground transition-quick text-xs sm:text-sm mt-2 sm:mt-0"
+          >
+            <X className="h-4 w-4 mr-1" />
+            Clear filters
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
