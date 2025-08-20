@@ -29,6 +29,24 @@ export const CategoryFilter = ({
   onCategoryToggle,
   onClearFilters
 }: CategoryFilterProps) => {
+  // Smart abbreviations for mobile display
+  const getMobileDisplayName = (category: string): string => {
+    const abbreviations: Record<string, string> = {
+      'MLOps': 'MLOps',
+      'LLM Ops': 'LLMOps', 
+      'DevOps': 'DevOps',
+      'GenAI': 'GenAI',
+      'Full-Stack': 'Full-Stack',
+      'Full-Stack / GenAI': 'FS/GenAI',
+      'Cloud & DevOps': 'Cloud/DevOps',
+      'Cloud/ ML': 'Cloud/ML',
+      'Data Engineering': 'Data Eng',
+      'Cloud Architecture': 'Cloud Arch',
+    };
+    
+    return abbreviations[category] || category;
+  };
+
   return (
     <div className="mb-8">
       <span className="text-sm font-medium text-foreground mb-3 block">Filter by category:</span>
@@ -38,6 +56,7 @@ export const CategoryFilter = ({
         <div className="grid grid-cols-3 gap-2 mb-3">
           {categories.map((category) => {
             const isSelected = selectedCategories.includes(category);
+            const mobileDisplayName = getMobileDisplayName(category);
             return (
               <Badge
                 key={category}
@@ -53,7 +72,7 @@ export const CategoryFilter = ({
                 onClick={() => onCategoryToggle(category)}
               >
                 <span className="truncate">
-                  {category.length > 8 ? category.substring(0, 8) + '...' : category}
+                  {mobileDisplayName}
                 </span>
               </Badge>
             );
