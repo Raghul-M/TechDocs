@@ -42,10 +42,10 @@ export const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
 
                 {/* Navigation - Always visible */}
         <nav className="flex items-center space-x-6">
-          <a
-            href="https://github.com/Raghul-M/Deploying_Docker-App-on-Render_Using_Githubactions"
-            target="_blank"
-            rel="noreferrer"
+                           <a
+                   href="https://github.com/Raghul-M"
+                   target="_blank"
+                   rel="noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md bg-black px-3 py-2 text-white hover:bg-gray-800 transition-colors text-xs sm:text-sm"
           >
             <Github className="h-4 w-4" />

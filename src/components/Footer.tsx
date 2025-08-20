@@ -19,18 +19,36 @@ export const Footer = () => {
             </div>
 
             <div className="flex justify-center space-x-3 mb-0">
-              <Button variant="outline" size="sm" className="border-white text-white bg-black">
-                <Github className="h-4 w-4 mr-2" />
-                GitHub
-              </Button>
-              <Button variant="outline" size="sm" className="border-white text-white bg-black">
-                <Linkedin className="h-4 w-4 mr-2 text-blue-500" />
-                LinkedIn
-              </Button>
-              <Button variant="outline" size="sm" className="border-white text-white bg-black">
-                <Mail className="h-4 w-4 mr-2" />
-                Contact
-              </Button>
+              <a
+                href="https://github.com/Raghul-M"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button variant="outline" size="sm" className="border-white text-white bg-black hover:bg-gray-800">
+                  <Github className="h-4 w-4 mr-2" />
+                  GitHub
+                </Button>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/m-raghul/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button variant="outline" size="sm" className="border-white text-white bg-black hover:bg-gray-800">
+                  <Linkedin className="h-4 w-4 mr-2 text-blue-500" />
+                  LinkedIn
+                </Button>
+              </a>
+              <a
+                href="mailto:contact@raghul.in"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button variant="outline" size="sm" className="border-white text-white bg-black hover:bg-gray-800">
+                  <Mail className="h-4 w-4 mr-2" />
+                  Contact
+                </Button>
+              </a>
             </div>
           </div>
         </div>
