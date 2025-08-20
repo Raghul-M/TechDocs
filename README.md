@@ -1,37 +1,61 @@
-# TechDocs - Technical Project Documentation Hub
+# TechDocs - Personal Projects Hub
 
-A modern documentation website for technical projects across various domains including MLOps, DevOps, GenAI, and full-stack development.
+A modern personal portfolio website showcasing technical projects across MLOps, DevOps, GenAI, Full-Stack development, and Open Source contributions.
 
-## Features
+## 🚀 Overview
 
-- **Modern Documentation Layout** - Clean, responsive design inspired by industry-standard documentation sites
-- **Domain-Focused Content** - Organized sections for different technical domains
-- **Mobile Responsive** - Optimized for all device sizes
-- **Interactive Navigation** - Sidebar navigation with collapsible sections
-- **Project Showcase** - Featured project cards with live demos and documentation links
+This is my personal projects hub where I showcase my technical journey through various domains. The site features categorized projects, live demos, GitHub repositories, and open source contributions.
 
-## Tech Stack
+## ✨ Features
+
+- **Project Categories** - Organized into Top Projects, Mini Projects, and Open Source contributions
+- **Live Demos** - Direct links to deployed applications
+- **GitHub Integration** - Links to source code repositories
+- **Open Source Showcase** - Dedicated section for community contributions
+- **Responsive Design** - Optimized for all device sizes
+- **Smart Search** - Filter projects by name, technology, or category
+- **Modern UI** - Clean, professional design with smooth animations
+
+## 🛠️ Tech Stack
 
 - **React 18** - Modern React with hooks and functional components
 - **TypeScript** - Full type safety throughout the application
 - **Tailwind CSS** - Utility-first CSS framework for styling
 - **Vite** - Fast build tool and development server
 - **Shadcn/ui** - High-quality React components
-- **React Router** - Client-side routing for navigation
+- **React Router** - Client-side routing
 - **Lucide React** - Beautiful icon library
 
-## Getting Started
+## 📂 Project Categories
+
+### 🏆 Top Projects
+Featured projects showcasing expertise in:
+- **MLOps/LLMOps** - AI/ML pipeline automation and deployment
+- **DevOps** - Infrastructure automation and CI/CD
+- **GenAI** - Generative AI applications and tools
+- **Full-Stack** - End-to-end web applications
+
+### 🧪 Mini Projects
+Smaller experiments and learning projects exploring different technologies and concepts.
+
+### 🌟 Open Source
+Community contributions including:
+- **GitHub Actions** - Custom marketplace actions
+- **Documentation** - Technical documentation improvements
+- **Translations** - Internationalization contributions
+- **Testing** - Unit test coverage improvements
+
+## 🚀 Getting Started
 
 ### Prerequisites
-
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
+git clone https://github.com/Raghul-M/TechDocs.git
 cd TechDocs
 ```
 
@@ -45,66 +69,68 @@ npm install
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:8080`
+4. Open your browser and navigate to `http://localhost:5173`
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 src/
 ├── components/          # Reusable React components
 │   ├── ui/             # Shadcn/ui components
-│   ├── Header.tsx      # Main navigation header
-│   ├── Footer.tsx      # Site footer
-│   ├── HeroSection.tsx # Landing page hero
-│   ├── ProjectCard.tsx # Project display cards
-│   ├── DocsLayout.tsx  # Documentation layout wrapper
-│   └── Sidebar.tsx     # Documentation sidebar navigation
+│   ├── Header.tsx      # Navigation header with search
+│   ├── Footer.tsx      # Site footer with social links
+│   ├── HeroSection.tsx # Landing page hero section
+│   ├── ProjectCard.tsx # Individual project cards
+│   ├── ProjectGrid.tsx # Project grid with tabs and filtering
+│   └── CategoryFilter.tsx # Category filtering component
 ├── pages/              # Page components
 │   ├── Index.tsx       # Home page
-│   ├── NotFound.tsx    # 404 page
-│   └── docs/           # Documentation pages
-├── data/               # Static data and content
+│   └── NotFound.tsx    # 404 page
+├── data/               # Project data and content
+│   └── projects.ts     # All project information
 ├── types/              # TypeScript type definitions
 ├── lib/                # Utility functions
 └── hooks/              # Custom React hooks
 ```
 
-## Available Scripts
+## 🎨 Customization
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run build:dev` - Build in development mode
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+### Adding New Projects
 
-## Customization
+1. Add project data to `src/data/projects.ts`
+2. Include project thumbnail in `public/images/projects/`
+3. Set appropriate category and featured status
 
-### Adding New Documentation Pages
+### Project Categories
 
-1. Create a new page component in `src/pages/docs/`
-2. Add the route to `src/App.tsx`
-3. Update the sidebar navigation in `src/components/Sidebar.tsx`
+Projects are categorized as:
+- `featured: true` - Top Projects
+- `opensource: true` - Open Source contributions  
+- Default - Mini Projects
 
 ### Styling
 
-The project uses Tailwind CSS for styling. Custom styles can be added to:
+The project uses Tailwind CSS with a custom color scheme. Modify:
+- `tailwind.config.ts` - Color palette and theme
 - `src/index.css` - Global styles and CSS variables
-- Component-level classes using Tailwind utilities
 
-### Color Theme
+## 📜 Available Scripts
 
-The site uses a green-based color palette. Colors can be customized in:
-- `tailwind.config.ts` - Tailwind color configuration
-- `src/index.css` - CSS custom properties
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## Contributing
+## 🤝 Connect
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+- **GitHub**: [Raghul-M](https://github.com/Raghul-M)
+- **LinkedIn**: [m-raghul](https://www.linkedin.com/in/m-raghul/)
+- **Email**: contact@raghul.in
 
-## License
+## 📄 License
 
-This project is private and not open for public contribution.
+This project is personal portfolio website. Feel free to use as inspiration for your own projects.
+
+---
+
+Built with ❤️ by Raghul M
