@@ -125,12 +125,10 @@ The project uses Tailwind CSS with a custom color scheme. Modify:
 
 - **GitHub**: [Raghul-M](https://github.com/Raghul-M)
 - **LinkedIn**: [m-raghul](https://www.linkedin.com/in/m-raghul/)
-- **Email**: contact@raghul.in
 
 ## 📄 License
 
 This project is personal portfolio website. Feel free to use as inspiration for your own projects.
 
----
 
 Built with ❤️ by Raghul M
