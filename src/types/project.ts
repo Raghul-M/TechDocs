@@ -12,6 +12,7 @@ export interface Project {
   documentationUrl?: string;
   thumbnail?: string;
   featured: boolean;
+  opensource?: boolean;
   diagram?: {
     title: string;
     description: string;

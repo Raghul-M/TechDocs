@@ -9,21 +9,36 @@ import { cn } from '@/lib/utils';
 interface ProjectCardProps {
   project: Project;
   className?: string;
+  activeTab?: 'top' | 'mini' | 'opensource';
 }
 
-export const ProjectCard = ({ project, className }: ProjectCardProps) => {
+export const ProjectCard = ({ project, className, activeTab }: ProjectCardProps) => {
   // Projects that should have Live Demo button
   const projectsWithLiveDemo = [
     'HireMe-ATS',
     'DevOps Hub', 
-    'Gmail Sender Action',
-    'Quay Push Action',
     'Git Bounty',
     'BookVision',
     'StreamChatify'
   ];
   
+  // Projects that should have Marketplace button
+  const projectsWithMarketplace = [
+    'Gmail Sender Action',
+    'Quay Push Action'
+  ];
+  
+  // Projects that should have PR/Contribution button
+  const projectsWithPRs = [
+    'HuggingFace Hub Contributions',
+    'Podman Contributions',
+    'CodeFlare Contributions',
+    'OpenDataHub Contributions'
+  ];
+  
   const shouldShowLiveDemo = projectsWithLiveDemo.includes(project.title);
+  const shouldShowMarketplace = projectsWithMarketplace.includes(project.title);
+  const shouldShowPRs = projectsWithPRs.includes(project.title);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -139,18 +154,56 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
               Live Demo
             </Button>
           )}
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className={`group/btn bg-black hover:bg-gray-800 border-black hover:border-gray-800 text-white ${
-              shouldShowLiveDemo ? 'flex-1' : 'w-full'
-            }`}
-            onClick={() => project.githubUrl ? window.open(project.githubUrl, '_blank') : null}
-            disabled={!project.githubUrl}
-          >
-            <Github className="w-4 h-4 mr-2" />
-            GitHub
-          </Button>
+          {shouldShowMarketplace && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className={`group/btn ${
+                activeTab === 'opensource' 
+                  ? 'w-full bg-black hover:bg-gray-800 border-black hover:border-gray-800 text-white' 
+                  : 'flex-1'
+              }`}
+              onClick={() => project.liveUrl ? window.open(project.liveUrl, '_blank') : null}
+              disabled={!project.liveUrl}
+            >
+              <ExternalLink className={`w-4 h-4 mr-2 ${
+                activeTab === 'opensource' ? '' : 'group-hover/btn:text-primary'
+              }`} />
+              Marketplace
+            </Button>
+          )}
+          {shouldShowPRs && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className={`group/btn ${
+                activeTab === 'opensource' 
+                  ? 'w-full bg-black hover:bg-gray-800 border-black hover:border-gray-800 text-white' 
+                  : 'flex-1'
+              }`}
+              onClick={() => project.liveUrl ? window.open(project.liveUrl, '_blank') : null}
+              disabled={!project.liveUrl}
+            >
+              <ExternalLink className={`w-4 h-4 mr-2 ${
+                activeTab === 'opensource' ? '' : 'group-hover/btn:text-primary'
+              }`} />
+              View PRs
+            </Button>
+          )}
+          {activeTab !== 'opensource' && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className={`group/btn bg-black hover:bg-gray-800 border-black hover:border-gray-800 text-white ${
+                (shouldShowLiveDemo || shouldShowMarketplace || shouldShowPRs) ? 'flex-1' : 'w-full'
+              }`}
+              onClick={() => project.githubUrl ? window.open(project.githubUrl, '_blank') : null}
+              disabled={!project.githubUrl}
+            >
+              <Github className="w-4 h-4 mr-2" />
+              GitHub
+            </Button>
+          )}
         </div>
       </CardFooter>
     </Card>

@@ -89,6 +89,7 @@ export const sampleProjects: Project[] = [
     liveUrl: 'https://github.com/marketplace/actions/gmail-sender-action',
     thumbnail: '/images/projects/gmail-ghaction.png',
     featured: true,
+    opensource: true,
     diagram: {
       title: 'Gmail Automation Workflow',
       description: 'Automated email delivery system via GitHub Actions',
@@ -108,6 +109,7 @@ export const sampleProjects: Project[] = [
     liveUrl: 'https://github.com/marketplace/actions/quay-push-action',
     thumbnail: '/images/projects/pushaction.png',
     featured: true,
+    opensource: true,
     diagram: {
       title: 'Container Registry Pipeline',
       description: 'Automated container image build and push workflow',
@@ -332,6 +334,88 @@ export const sampleProjects: Project[] = [
     diagram: {
       title: 'Attendance Management System',
       description: 'Automated attendance tracking and reporting workflow',
+      author: 'Raghul M'
+    }
+  },
+  
+  // OPENSOURCE CONTRIBUTIONS
+  {
+    id: '19',
+    title: 'HuggingFace Hub Contributions',
+    description: 'Contributed Tamil language translation to HuggingFace Hub Python client documentation, translating index.md and installation.md files to make ML tools accessible to Tamil-speaking developers.',
+    category: 'GenAI',
+    tags: ['HuggingFace', 'Documentation', 'Tamil Translation', 'i18n', 'Python Client'],
+    techStack: ['Python', 'Documentation', 'Internationalization', 'Markdown', 'Open Source'],
+    status: 'completed',
+    completionDate: '2024-10',
+    githubUrl: 'https://github.com/huggingface/huggingface_hub',
+    liveUrl: 'https://github.com/huggingface/huggingface_hub/pull/2555',
+    thumbnail: '/images/projects/huggingface.png',
+    featured: false,
+    opensource: true,
+    diagram: {
+      title: 'HuggingFace Hub Contribution',
+      description: 'Tamil documentation translation for Python client library',
+      author: 'Raghul M'
+    }
+  },
+  {
+    id: '20',
+    title: 'Podman Contributions',
+    description: 'Contributed comprehensive documentation improvements to Podman container engine, including man page enhancements for podman rm, system connection, system service, and format flag examples across multiple commands.',
+    category: 'DevOps',
+    tags: ['Podman', 'Documentation', 'Man Pages', 'Container CLI', 'Open Source'],
+    techStack: ['Documentation', 'Man Pages', 'Container Technology', 'CLI Tools', 'Open Source'],
+    status: 'completed',
+    completionDate: '2025-08',
+    githubUrl: 'https://github.com/containers/podman',
+    liveUrl: 'https://github.com/containers/podman/pulls?q=is%3Apr++author%3ARaghul-M',
+    thumbnail: '/images/projects/podman.png',
+    featured: false,
+    opensource: true,
+    diagram: {
+      title: 'Podman Documentation Contributions',
+      description: 'Multiple merged PRs improving Podman CLI documentation',
+      author: 'Raghul M'
+    }
+  },
+  {
+    id: '21',
+    title: 'CodeFlare Contributions',
+    description: 'Contributed comprehensive unit tests for CodeFlare support package modules, including test coverage for batch, core, environment, image, ingress, machine, ray, and route components with Go testing framework.',
+    category: 'Cloud/ ML',
+    tags: ['CodeFlare', 'Unit Testing', 'Go', 'Testing Framework', 'Open Source'],
+    techStack: ['Go', 'Unit Testing', 'Kubernetes', 'Testing', 'Open Source'],
+    status: 'completed',
+    completionDate: '2024-01',
+    githubUrl: 'https://github.com/project-codeflare/codeflare-common',
+    liveUrl: 'https://github.com/project-codeflare/codeflare-common/pull/23',
+    thumbnail: '/images/projects/codeflare.png',
+    featured: false,
+    opensource: true,
+    diagram: {
+      title: 'CodeFlare Testing Contributions',
+      description: 'Comprehensive unit test suite for distributed AI/ML platform',
+      author: 'Raghul M'
+    }
+  },
+  {
+    id: '22',
+    title: 'OpenDataHub Contributions',
+    description: 'Contributed CI/CD automation workflows to OpenDataHub serving infrastructure, including push to release workflows, cherrypick automation, and downstream to upstream synchronization processes.',
+    category: 'LLM Ops',
+    tags: ['OpenDataHub', 'CI/CD', 'GitHub Actions', 'Automation', 'DevOps'],
+    techStack: ['GitHub Actions', 'CI/CD', 'Automation', 'Workflows', 'Open Source'],
+    status: 'completed',
+    completionDate: '2024-08',
+    githubUrl: 'https://github.com/opendatahub-io/odh-automation-serving',
+    liveUrl: 'https://github.com/opendatahub-io/odh-automation-serving/pulls?q=is%3Apr++author%3ARaghul-M',
+    thumbnail: '/images/projects/opendatahub.png',
+    featured: false,
+    opensource: true,
+    diagram: {
+      title: 'OpenDataHub Automation Contributions',
+      description: 'CI/CD workflow automation for ML serving infrastructure',
       author: 'Raghul M'
     }
   }

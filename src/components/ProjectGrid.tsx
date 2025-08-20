@@ -9,7 +9,7 @@ interface ProjectGridProps {
   onSearchChange?: (query: string) => void;
 }
 
-type ProjectTab = 'top' | 'mini';
+type ProjectTab = 'top' | 'mini' | 'opensource';
 
 export const ProjectGrid = ({ projects, searchQuery, onSearchChange }: ProjectGridProps) => {
   const [activeTab, setActiveTab] = useState<ProjectTab>('top');
@@ -30,8 +30,10 @@ export const ProjectGrid = ({ projects, searchQuery, onSearchChange }: ProjectGr
 
     if (activeTab === 'top') {
       return baseProjects.filter(project => project.featured);
+    } else if (activeTab === 'opensource') {
+      return baseProjects.filter(project => project.opensource);
     } else {
-      return baseProjects.filter(project => !project.featured);
+      return baseProjects.filter(project => !project.featured && !project.opensource);
     }
   };
 
@@ -69,6 +71,16 @@ export const ProjectGrid = ({ projects, searchQuery, onSearchChange }: ProjectGr
                   }`}
                 >
                   Mini Projects
+                </button>
+                <button
+                  onClick={() => setActiveTab('opensource')}
+                  className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+                    activeTab === 'opensource'
+                      ? 'bg-background text-foreground shadow-sm'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  Opensource
                 </button>
               </div>
             </div>
@@ -116,6 +128,16 @@ export const ProjectGrid = ({ projects, searchQuery, onSearchChange }: ProjectGr
               >
                 Mini Projects
               </button>
+              <button
+                onClick={() => setActiveTab('opensource')}
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+                  activeTab === 'opensource'
+                    ? 'bg-background text-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Opensource
+              </button>
             </div>
           </div>
 
@@ -125,6 +147,8 @@ export const ProjectGrid = ({ projects, searchQuery, onSearchChange }: ProjectGr
             ) : (
               activeTab === 'top' 
                 ? 'My featured projects showcasing expertise in AI, DevOps, and full-stack development'
+                : activeTab === 'opensource'
+                ? 'Open source contributions including GitHub Actions, HuggingFace PRs, and community projects'
                 : 'Smaller experiments and learning projects that showcase different technologies'
             )}
           </p>
@@ -137,6 +161,7 @@ export const ProjectGrid = ({ projects, searchQuery, onSearchChange }: ProjectGr
               key={project.id} 
               project={project}
               className="h-full"
+              activeTab={activeTab}
             />
           ))}
         </div>
