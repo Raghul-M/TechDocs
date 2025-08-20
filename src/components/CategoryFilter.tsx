@@ -33,28 +33,68 @@ export const CategoryFilter = ({
     <div className="mb-8">
       <span className="text-sm font-medium text-foreground mb-3 block">Filter by category:</span>
       
-      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-        {categories.map((category) => {
-        const isSelected = selectedCategories.includes(category);
-        return (
-          <Badge
-            key={category}
-            variant={isSelected ? "default" : "outline"}
-            className={`
-              cursor-pointer transition-smooth hover-lift text-xs sm:text-sm
-              flex-shrink-0 min-w-0 max-w-[30%] sm:max-w-none
-              ${isSelected 
-                ? 'bg-primary text-primary-foreground border-primary hover:bg-primary-hover' 
-                : `${categoryColors[category]} border transition-colors`
-              }
-            `}
-            onClick={() => onCategoryToggle(category)}
+      {/* Mobile Layout - 3 per row */}
+      <div className="sm:hidden">
+        <div className="grid grid-cols-3 gap-2 mb-3">
+          {categories.map((category) => {
+            const isSelected = selectedCategories.includes(category);
+            return (
+              <Badge
+                key={category}
+                variant={isSelected ? "default" : "outline"}
+                className={`
+                  cursor-pointer transition-smooth hover-lift text-xs
+                  flex-shrink-0 justify-center text-center px-2 py-1
+                  ${isSelected 
+                    ? 'bg-primary text-primary-foreground border-primary hover:bg-primary-hover' 
+                    : `${categoryColors[category]} border transition-colors`
+                  }
+                `}
+                onClick={() => onCategoryToggle(category)}
+              >
+                <span className="truncate">
+                  {category.length > 8 ? category.substring(0, 8) + '...' : category}
+                </span>
+              </Badge>
+            );
+          })}
+        </div>
+        
+        {selectedCategories.length > 0 && (
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onClearFilters}
+            className="text-muted-foreground hover:text-foreground transition-quick text-xs w-full"
           >
-            <span className="truncate sm:whitespace-nowrap">
-              {category}
-            </span>
-          </Badge>
-        );
+            <X className="h-4 w-4 mr-1" />
+            Clear filters
+          </Button>
+        )}
+      </div>
+
+      {/* Desktop Layout - Flexible */}
+      <div className="hidden sm:flex flex-wrap items-center gap-3">
+        {categories.map((category) => {
+          const isSelected = selectedCategories.includes(category);
+          return (
+            <Badge
+              key={category}
+              variant={isSelected ? "default" : "outline"}
+              className={`
+                cursor-pointer transition-smooth hover-lift text-sm
+                ${isSelected 
+                  ? 'bg-primary text-primary-foreground border-primary hover:bg-primary-hover' 
+                  : `${categoryColors[category]} border transition-colors`
+                }
+              `}
+              onClick={() => onCategoryToggle(category)}
+            >
+              <span className="whitespace-nowrap">
+                {category}
+              </span>
+            </Badge>
+          );
         })}
 
         {selectedCategories.length > 0 && (
@@ -62,7 +102,7 @@ export const CategoryFilter = ({
             variant="ghost"
             size="sm"
             onClick={onClearFilters}
-            className="text-muted-foreground hover:text-foreground transition-quick text-xs sm:text-sm mt-2 sm:mt-0"
+            className="text-muted-foreground hover:text-foreground transition-quick text-sm"
           >
             <X className="h-4 w-4 mr-1" />
             Clear filters
