@@ -40,7 +40,7 @@ export const CategoryFilter = ({
             key={category}
             variant={isSelected ? "default" : "outline"}
             className={`
-              cursor-pointer transition-smooth hover-lift
+              cursor-pointer transition-smooth hover-lift whitespace-normal text-center
               ${isSelected 
                 ? 'bg-primary text-primary-foreground border-primary hover:bg-primary-hover' 
                 : `${categoryColors[category]} border transition-colors`
@@ -48,7 +48,19 @@ export const CategoryFilter = ({
             `}
             onClick={() => onCategoryToggle(category)}
           >
-            {category}
+            <span className="sm:whitespace-nowrap">
+              {category.includes('/') || category.includes('&') ? (
+                <span className="block sm:inline">
+                  {category.split(/([/&])/).map((part, index) => (
+                    <span key={index} className={index % 2 === 1 ? 'sm:inline' : 'block sm:inline'}>
+                      {part}
+                    </span>
+                  ))}
+                </span>
+              ) : (
+                category
+              )}
+            </span>
           </Badge>
         );
       })}
