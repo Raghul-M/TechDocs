@@ -41,7 +41,7 @@ export const HeroSection = () => {
               <div className="w-10 h-10 md:w-16 md:h-16 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-2 md:mb-4 group-hover:bg-indigo-200 transition-colors">
                 <Cloud className="h-5 w-5 md:h-8 md:w-8 text-indigo-600" />
               </div>
-              <h3 className="text-xs md:text-xl font-bold text-foreground mb-1 md:mb-3">Cloud/DevOps</h3>
+              <h3 className="text-xs md:text-xl font-bold text-foreground mb-1 md:mb-3">Cloud & DevOps</h3>
             </div>
 
             <div className="text-center group">
@@ -62,7 +62,7 @@ export const HeroSection = () => {
               <div className="w-10 h-10 md:w-16 md:h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-2 md:mb-4 group-hover:bg-green-200 transition-colors">
                 <Layers className="h-5 w-5 md:h-8 md:w-8 text-green-600" />
               </div>
-              <h3 className="text-xs md:text-xl font-bold text-foreground mb-1 md:mb-3">MLOps/LLMOps</h3>
+              <h3 className="text-xs md:text-xl font-bold text-foreground mb-1 md:mb-3">MLOps & LLMOps</h3>
             </div>
 
             <div className="text-center group ml-2 md:ml-4">
